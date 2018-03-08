@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:security="http://www.springframework.org/schema/security"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-4.2.xsd
+		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.3.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+	<security:http auto-config="true" use-expressions="true">
+		<security:headers disabled="true"></security:headers>
+		<security:intercept-url pattern="/login/**"
+			access="permitAll" />
+		<security:intercept-url pattern="/tiles/**"
+			access="permitAll" />
+		<security:intercept-url pattern="/busquedas**"
+			access="hasRole('ADMIN') or hasRole('TS') or hasRole('SUBTEL') or hasRole('COORDINADOR')" />
+		<security:intercept-url pattern="/ees**"
+			access="hasRole('ADMIN') or hasRole('TS') or hasRole('SUBTEL') or hasRole('COORDINADOR')" />
+		<security:intercept-url pattern="/graficos**"
+			access="hasRole('ADMIN') or hasRole('SUBTEL')" />
+		<security:intercept-url pattern="/reportes**"
+			access="hasRole('ADMIN') or hasRole('SUBTEL')" />
+		<security:intercept-url pattern="/reporteticket**"
+			access="hasRole('ADMIN') or hasRole('COORDINADOR')" />
+		<security:intercept-url pattern="/reporteTicketOperadora**"
+			access="hasRole('ADMIN') or hasRole('COORDINADOR')" />
+		<security:intercept-url pattern="/user**"
+			access="permitAll" />
+		<security:form-login login-page="/login.html"
+			default-target-url="/busquedas.html" login-processing-url="/j_spring_security_check"
+			username-parameter="j_username" password-parameter="j_password"
+			authentication-failure-url="/login.html?login=failed" />
+		<security:logout logout-url="/j_spring_security_logout"
+			delete-cookies="JSESSIONID" invalidate-session="true"
+			logout-success-url="/inicio.jsp" />
+	</security:http>
+	<security:authentication-manager>
+		<security:authentication-provider>
+			<security:password-encoder ref="encoder"/>
+			<security:jdbc-user-service
+				data-source-ref="dataSecurity"
+				users-by-username-query="select usuario, clave, not(bloqueado) as enabled from security.usuarios where usuario=?"
+				authorities-by-username-query="select usuario, concat('ROLE_',nombre_rol) nombre_rol from security.usuarios inner join security.roles u on (usuarios.roles_id = u.rol_id) 
+where usuario=?" />
+		</security:authentication-provider>
+	</security:authentication-manager>
+	<bean id="encoder"
+		class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder" />
+</beans>

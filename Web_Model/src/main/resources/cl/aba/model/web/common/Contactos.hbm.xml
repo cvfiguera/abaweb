@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 27-04-2017 11:06:15 AM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="cl.aba.model.web.common.Contactos" table="contactos" schema="web">
+        <id name="contactoId" type="int">
+            <column name="contacto_id" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="rbd" class="cl.aba.model.web.common.Rbd" fetch="select">
+            <column name="rbd_id">
+                <comment>id rbd</comment>
+            </column>
+        </many-to-one>
+        <property name="nombreTx" type="string">
+            <column name="nombre_tx" length="250">
+                <comment>nombre del contacto</comment>
+            </column>
+        </property>
+        <property name="cargoTx" type="string">
+            <column name="cargo_tx" length="250">
+                <comment>cargo</comment>
+            </column>
+        </property>
+        <property name="telefono1Tx" type="string">
+            <column name="telefono1_tx" length="250">
+                <comment>telefono uno</comment>
+            </column>
+        </property>
+        <property name="telefono2Tx" type="string">
+            <column name="telefono2_tx" length="250">
+                <comment>telefono dos</comment>
+            </column>
+        </property>
+        <property name="mailTx" type="string">
+            <column name="mail_tx" length="250">
+                <comment>mail, direccion de correo</comment>
+            </column>
+        </property>
+        <property name="fechaBaja" type="date">
+            <column name="fecha_baja" length="13">
+                <comment>fecha de baja del contacto, es null por defecto, si existe fecha significa que el contacto ya no es valido</comment>
+            </column>
+        </property>
+    </class>
+</hibernate-mapping>

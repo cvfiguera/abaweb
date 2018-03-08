@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 27-04-2017 11:06:15 AM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="cl.aba.model.web.common.Comunas" table="comunas" schema="web">
+        <id name="comunaId" type="int">
+            <column name="comuna_id" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="regiones" class="cl.aba.model.web.common.Regiones" fetch="select">
+            <column name="region_id">
+                <comment>id regiones</comment>
+            </column>
+        </many-to-one>
+        <property name="nombreComunaTx" type="string">
+            <column name="nombre_comuna_tx" length="250">
+                <comment>nombre de la comuna</comment>
+            </column>
+        </property>
+        <property name="numeroComuna" type="java.lang.Integer">
+            <column name="numero_comuna">
+                <comment>numero de la comuna</comment>
+            </column>
+        </property>
+        <set name="rbds" inverse="true">
+            <key>
+                <column name="comuna_id">
+                    <comment>id comuna</comment>
+                </column>
+            </key>
+            <one-to-many class="cl.aba.model.web.common.Rbd" />
+        </set>
+    </class>
+</hibernate-mapping>

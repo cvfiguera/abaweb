@@ -1,0 +1,121 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 14-02-2017 16:33:07 by Hibernate Tools 5.2.0.CR1 -->
+<hibernate-mapping>
+    <class name="cl.aba.model.old.common.TicketView" table="vistaestadtic" optimistic-lock="version">
+        
+        <id name="nroTicketCallCenter" type="int">
+            <column name="nro_ticket_callcenter" />
+            <generator class="increment" />
+        </id>
+        
+        <property name="rbd" type="java.lang.Long">
+            <column name="rbd" />
+        </property>
+        
+        <property name="anexo" type="java.lang.String">
+            <column name="anexo" />
+        </property>
+        
+        <property name="estadoId" type="java.lang.Integer">
+            <column name="estado_id" />
+        </property>
+        
+        <property name="estadoEES" type="string">
+            <column name="estado_ees" />
+        </property>
+        
+        <property name="nombreEstablecimiento" type="java.lang.String">
+            <column name="nombre_establecimiento" />
+        </property>
+        
+        <property name="codigoRegion" type="java.lang.Integer">
+            <column name="codigo_region" />
+        </property>
+        
+        <property name="region" type="java.lang.String">
+            <column name="region" />
+        </property>
+        
+        <property name="codigoComuna" type="java.lang.Integer">
+            <column name="codigo_comuna" />
+        </property>
+        
+        <property name="comuna" type="java.lang.String">
+            <column name="comuna" />
+        </property>
+        
+        <property name="codigoOperadora" type="java.lang.Integer">
+            <column name="codigo_operadora" />
+        </property>
+        
+        <property name="operadora" type="java.lang.String">
+            <column name="operadora" />
+        </property>
+        
+        <property name="origen" type="java.lang.String">
+            <column name="origen" />
+        </property>
+        
+        <property name="generaWF" type="java.lang.Boolean">
+            <column name="genera_wf" />
+        </property>
+        
+         <property name="escalable" type="java.lang.Boolean">
+            <column name="escalable" />
+        </property>
+        
+         <property name="estado" type="java.lang.String">
+            <column name="estado" />
+        </property>
+        
+        <property name="tipo" type="java.lang.String">
+            <column name="tipo" />
+        </property>
+        
+        <property name="categoria" type="java.lang.String">
+            <column name="categoria" />
+        </property>
+        
+        <property name="escalarA" type="java.lang.String">
+            <column name="escalar_a" />
+        </property>
+        
+        <property name="nroTicketEscalado" type="java.lang.String">
+            <column name="nro_ticket_escalado" />
+        </property>
+        
+        <property name="generadoOperadora" type="java.lang.Boolean">
+            <column name="generado_operadora" />
+        </property>
+        
+        <property name="fechaAtencion" type="timestamp">
+            <column name="fecha_atencion" />
+        </property>
+        
+        <property name="fechaEscalado" type="timestamp">
+            <column name="fecha_escalado" />
+        </property>
+        
+        <property name="fechaCambioEstado" type="date">
+            <column name="fecha_cambio_estado" />
+        </property>
+        
+        <property name="codigoTecnologia" type="java.lang.Integer">
+            <column name="codigo_tecnologia" />
+        </property>
+        
+        <property name="tecnologia" type="java.lang.String">
+            <column name="tecnologia" />
+        </property>
+        
+        <property name="motivo" type="java.lang.String">
+            <column name="motivo" />
+        </property>
+        
+		<property name="comentario" type="java.lang.String">
+            <column name="comentario" />
+        </property>
+    </class>
+</hibernate-mapping>

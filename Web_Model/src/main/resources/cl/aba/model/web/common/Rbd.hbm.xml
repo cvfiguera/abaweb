@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 27-04-2017 11:06:15 AM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="cl.aba.model.web.common.Rbd" table="rbd" schema="web">
+        <id name="rbdId" type="int">
+            <column name="rbd_id" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="comunas" class="cl.aba.model.web.common.Comunas" fetch="select">
+            <column name="comuna_id">
+                <comment>id comuna</comment>
+            </column>
+        </many-to-one>
+        <property name="rbdNu" type="java.lang.Integer">
+            <column name="rbd_nu">
+                <comment>rbd</comment>
+            </column>
+        </property>
+        <property name="nombreEstablecimientoTx" type="string">
+            <column name="nombre_establecimiento_tx" length="250">
+                <comment>nombre establecimiento</comment>
+            </column>
+        </property>
+        <property name="direccionTx" type="string">
+            <column name="direccion_tx" length="250">
+                <comment>direccion</comment>
+            </column>
+        </property>
+        <property name="numAlumnosNu" type="java.lang.Long">
+            <column name="num_alumnos_nu">
+                <comment>numeros de alumnos</comment>
+            </column>
+        </property>
+        <property name="observacionTx" type="string">
+            <column name="observacion_tx" length="250">
+                <comment>observacion</comment>
+            </column>
+        </property>
+        <property name="anexoTx" type="string">
+            <column name="anexo_tx" length="2">
+                <comment>anexo</comment>
+            </column>
+        </property>
+        <set name="contactoses" inverse="true">
+            <key>
+                <column name="rbd_id">
+                    <comment>id rbd</comment>
+                </column>
+            </key>
+            <one-to-many class="cl.aba.model.web.common.Contactos" />
+        </set>
+        <set name="rbdConcursoses" inverse="true">
+            <key>
+                <column name="rbd_id">
+                    <comment>id rbd</comment>
+                </column>
+            </key>
+            <one-to-many class="cl.aba.model.web.common.RbdConcursos" />
+        </set>
+    </class>
+</hibernate-mapping>

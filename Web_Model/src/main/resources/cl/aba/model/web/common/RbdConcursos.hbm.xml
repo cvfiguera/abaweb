@@ -1,0 +1,72 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 27-04-2017 11:06:15 AM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="cl.aba.model.web.common.RbdConcursos" table="rbd_concursos" schema="web">
+        <id name="rbdConcursoId" type="int">
+            <column name="rbd_concurso_id" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="concursos" class="cl.aba.model.web.common.Concursos" fetch="select">
+            <column name="concurso_id">
+                <comment>id concurso</comment>
+            </column>
+        </many-to-one>
+        <many-to-one name="rbd" class="cl.aba.model.web.common.Rbd" fetch="select">
+            <column name="rbd_id">
+                <comment>id rbd</comment>
+            </column>
+        </many-to-one>
+        <property name="marcaParque" type="string">
+            <column name="marca_parque">
+                <comment>esta es la marca inicial del parque por proyecto</comment>
+            </column>
+        </property>
+        <property name="fechaFin" type="date">
+            <column name="fecha_fin" length="13">
+                <comment>fecha de fin, si es null es vigente</comment>
+            </column>
+        </property>
+        <set name="listaEsperas" inverse="true">
+            <key>
+                <column name="rbd_concurso_id">
+                    <comment>rbd concurso id</comment>
+                </column>
+            </key>
+            <one-to-many class="cl.aba.model.web.common.ListaEspera" />
+        </set>
+        <set name="rbdEstadoses" inverse="true">
+            <key>
+                <column name="rbd_concurso_id">
+                    <comment>id rbd concurso</comment>
+                </column>
+            </key>
+            <one-to-many class="cl.aba.model.web.common.RbdEstados" />
+        </set>
+        <set name="excepcionesPagos" inverse="true">
+            <key>
+                <column name="rbd_concurso_id">
+                    <comment>id rbd concurso</comment>
+                </column>
+            </key>
+            <one-to-many class="cl.aba.model.web.common.ExcepcionesPago" />
+        </set>
+        <set name="adjudicacioneses" inverse="true">
+            <key>
+                <column name="rbd_concurso_id" not-null="true">
+                    <comment>rbd_concurso_id</comment>
+                </column>
+            </key>
+            <one-to-many class="cl.aba.model.web.common.Adjudicaciones" />
+        </set>
+        <set name="instalacioneses" inverse="true">
+            <key>
+                <column name="rbd_concurso_id" not-null="true">
+                    <comment>rbd_concurso id</comment>
+                </column>
+            </key>
+            <one-to-many class="cl.aba.model.web.common.Instalaciones" />
+        </set>
+    </class>
+</hibernate-mapping>

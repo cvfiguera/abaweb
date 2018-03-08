@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 27-04-2017 11:06:15 AM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="cl.aba.model.web.common.InstalacionExcepciones" table="instalacion_excepciones" schema="web">
+        <id name="instalacionExcepcionId" type="int">
+            <column name="instalacion_excepcion_id" />
+            <generator class="assigned" />
+        </id>
+        <property name="fechaInicioFe" type="date">
+            <column name="fecha_inicio_fe" length="13">
+                <comment>fecha inicio</comment>
+            </column>
+        </property>
+        <property name="fechaTerminoFe" type="date">
+            <column name="fecha_termino_fe" length="13">
+                <comment>fecha termino</comment>
+            </column>
+        </property>
+        <property name="fechaCreacionFe" type="date">
+            <column name="fecha_creacion_fe" length="13">
+                <comment>fecha_creacion</comment>
+            </column>
+        </property>
+        <property name="esPago" type="java.lang.Boolean">
+            <column name="es_pago">
+                <comment>true si es pago, false si no es pago</comment>
+            </column>
+        </property>
+        <property name="comentario" type="string">
+            <column name="comentario" length="250">
+                <comment>comentario acerca de porque se paga o no, razon, causa</comment>
+            </column>
+        </property>
+        <set name="instalacioneses" inverse="true">
+            <key>
+                <column name="instalacion_excepcion_id">
+                    <comment>id instalacion exception</comment>
+                </column>
+            </key>
+            <one-to-many class="cl.aba.model.web.common.Instalaciones" />
+        </set>
+    </class>
+</hibernate-mapping>

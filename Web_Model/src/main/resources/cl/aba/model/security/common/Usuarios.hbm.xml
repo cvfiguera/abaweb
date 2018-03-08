@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 12-10-2017 13:18:58 by Hibernate Tools 5.2.0.CR1 -->
+<hibernate-mapping>
+    <class name="cl.aba.model.security.common.Usuarios" table="usuarios" optimistic-lock="version">
+        <id name="usuarioId" type="int">
+            <column name="usuario_id" />
+            <generator class="increment" />
+        </id>
+        <many-to-one name="roles" class="cl.aba.model.security.common.Roles" fetch="select">
+            <column name="roles_id" />
+        </many-to-one>
+        <property name="usuario" type="string">
+            <column name="usuario" />
+        </property>
+        <property name="clave" type="string">
+            <column name="clave" />
+        </property>
+        <property name="email" type="string">
+            <column name="email" />
+        </property>
+        <property name="bloqueado" type="java.lang.Boolean">
+            <column name="bloqueado" />
+        </property>
+        <property name="intentos" type="java.lang.Integer">
+            <column name="intentos" />
+        </property>
+        <property name="rut" type="string">
+            <column name="rut" />
+        </property>
+        <property name="telefono" type="string">
+            <column name="telefono" />
+        </property>
+        <property name="organismo" type="string">
+            <column name="organismo" />
+        </property>
+        <property name="maxIntentos" type="java.lang.Integer">
+            <column name="max_intentos" />
+        </property>
+        <property name="nombre" type="string">
+            <column name="nombre" />
+        </property>
+        <property name="apellido" type="string">
+            <column name="apellido" />
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:p="http://www.springframework.org/schema/p" xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+		http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context 
+		http://www.springframework.org/schema/context/spring-context-4.3.xsd
+		http://www.springframework.org/schema/tx 
+		http://www.springframework.org/schema/tx/spring-tx-4.3.xsd">
+
+	<context:annotation-config></context:annotation-config>
+	<context:component-scan base-package="cl.aba.controller"></context:component-scan>
+	<context:component-scan base-package="cl.aba.business"></context:component-scan>
+	<context:component-scan base-package="cl.aba.model"></context:component-scan>
+
+	
+	<bean id="viewResolver"
+		class="org.springframework.web.servlet.view.UrlBasedViewResolver">
+		<property name="viewClass">
+			<value>
+				org.springframework.web.servlet.view.tiles3.TilesView
+			</value>
+		</property>
+	</bean>
+	<bean id="tilesConfigurer"
+		class="org.springframework.web.servlet.view.tiles3.TilesConfigurer">
+		<property name="definitions">
+			<list>
+				<value>classpath:tiles.xml</value>
+			</list>
+		</property>
+	</bean>
+	<bean id="propertyPlaceholderConfigurer"
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="locations">
+			<list>
+				<value>classpath:jdbc.properties</value>
+				<value>classpath:usersftp.properties</value>
+				<value>classpath:application.properties</value>
+			</list>
+		</property>
+	</bean>
+
+	<!-- CONFIGURACION BASE DE DATOS WEB --> 
+	<bean id="dataWeb"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource"
+		p:driverClassName="${jdbc.web.driverClassName}" p:url="${jdbc.web.url}"
+		p:username="${jdbc.web.username}" p:password="${jdbc.web.password}">
+	</bean>
+	<bean id="sessionFactoryWeb"
+		class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+		<property name="dataSource">
+			<ref bean="dataWeb" />
+		</property>
+		<property name="configLocation">
+            <value>classpath:hibernateWeb.cfg.xml</value>
+        </property>
+	</bean>
+	<bean id="transactionManagerWeb"
+		class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactoryWeb"></property>
+	</bean>
+	
+	<!-- CONFIGURACION BASE DE DATOS SECURITY--> 
+	<bean id="dataSecurity"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource"
+		p:driverClassName="${jdbc.security.driverClassName}" p:url="${jdbc.security.url}"
+		p:username="${jdbc.security.username}" p:password="${jdbc.security.password}">
+	</bean>
+	<bean id="sessionFactorySecurity"
+		class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+		<property name="dataSource">
+			<ref bean="dataSecurity" />
+		</property>
+		<property name="configLocation">
+            <value>classpath:hibernateSecurity.cfg.xml</value>
+        </property>
+	</bean>
+	<bean id="transactionManagerSecurity"
+		class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactorySecurity"></property>
+	</bean>
+	
+	<!-- CONFIGURACION BASE DE DATOS OLD --> 
+	<bean id="dataOld"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource"
+		p:driverClassName="${jdbc.old.driverClassName}" p:url="${jdbc.old.url}"
+		p:username="${jdbc.old.username}" p:password="${jdbc.old.password}">
+	</bean>
+	<bean id="sessionFactoryOld"
+		class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+		<property name="dataSource">
+			<ref bean="dataOld" />
+		</property>
+		<property name="configLocation">
+            <value>classpath:hibernateOld.cfg.xml</value>
+        </property>
+	</bean>
+	<bean id="transactionManagerOld"
+		class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactoryOld"></property>
+	</bean>
+	
+	<tx:annotation-driven transaction-manager="transactionManagerWeb" />
+
+</beans>

@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 14-02-2017 16:33:07 by Hibernate Tools 5.2.0.CR1 -->
+<hibernate-mapping>
+    <class name="cl.aba.model.old.common.Region" table="aba_region" optimistic-lock="version">
+        <id name="id" type="int">
+            <column name="id" />
+            <generator class="increment" />
+        </id>
+        <property name="nombre" type="string">
+            <column name="nombre" />
+        </property>
+        <property name="codigo" type="integer">
+            <column name="codigo" />
+        </property>
+    </class>
+</hibernate-mapping>

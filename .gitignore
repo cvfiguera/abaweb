@@ -1,0 +1,9 @@
+Web_Aba/src/main/webapp/bower_components/
+/bin/**
+target
+.classpath
+.project
+.settings
+src/main/webapp/META-INF
+.idea
+*.iml

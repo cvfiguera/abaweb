@@ -1,0 +1,87 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    
+    <class name="cl.aba.model.web.common.FASView" table= "fas_view" optimistic-lock="version">
+        <id name="rbdId" type="int">
+	    	<column name="rbd_id" />
+	    </id>
+        <property name="concursoId" type="int">
+            <column name="concurso_id" />
+        </property>
+        <property name="nombreConcurso" type="string">
+            <column name="concurso" length="250">
+                <comment>nombre concurso</comment>
+            </column>
+        </property>
+        <property name="rbd" type="java.lang.Integer">
+            <column name="rbd">
+                <comment>rbd</comment>
+            </column>
+        </property>
+        <property name="anexo" type="string">
+            <column name="anexo" length="2">
+                <comment>anexo</comment>
+            </column>
+        </property>
+        <property name="nombreEES" type="string">
+            <column name="nombre_ees" length="250">
+                <comment>nombre establecimiento</comment>
+            </column>
+        </property>
+         <property name="url" type="string">
+            <column name="url" length="200">
+                <comment>url</comment>
+            </column>
+        </property>
+        <property name="velocidadBajada" type="big_decimal">
+            <column name="velocidad_bajada" precision="100" scale="4">
+                <comment>velocidad nacional</comment>
+            </column>
+        </property>
+        <property name="velocidadSubida" type="big_decimal">
+            <column name="velocidad_subida" precision="100" scale="4">
+                <comment>velocidad internacional</comment>
+            </column>
+        </property>
+        <property name="fechaFAS" type="date">
+            <column name="fecha_fas" length="13">
+                <comment>fecha_alta_servicio</comment>
+            </column>
+        </property>
+        <property name="numFAS" type="string">
+            <column name="num_fas" length="50">
+                <comment>numero de fas</comment>
+            </column>
+        </property>         
+        <property name="tecnologiaId" type="java.lang.Integer">
+            <column name="tecnologia_id">
+            </column>
+        </property>
+        <property name="tecnologia" type="string">
+            <column name="tecnologia" length="250">
+                <comment>nombre de la tecnologia</comment>
+            </column>
+        </property>
+        <property name="operadoraId" type="java.lang.Integer">
+            <column name="operadora_id">
+            </column>
+        </property>
+        <property name="operadora" type="string">
+            <column name="operadora" length="250">
+                <comment>nombre social</comment>
+            </column>
+        </property>
+         <property name="conectadoEstadoId" type="java.lang.Integer">
+            <column name="estado_conectado_id">
+            </column>
+        </property>
+        <property name="estadoConectado" type="string">
+            <column name="estado_conectado" length="250">
+                <comment>conectado estado</comment>
+            </column>
+        </property>
+    </class>
+</hibernate-mapping>

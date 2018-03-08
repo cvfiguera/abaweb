@@ -1,0 +1,89 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    
+    <class name="cl.aba.model.web.common.EESView" table= "ees_view" optimistic-lock="version">
+	    <id name="rbdId" type="int">
+	    	<column name="rbd_id" />
+	    </id>
+        <property name="concursoId" type="int">
+            <column name="concurso_id" />
+        </property>
+        <property name="concurso" type="string">
+            <column name="concurso" length="250">
+                <comment>nombre concurso</comment>
+            </column>
+        </property>
+        <property name="rbd" type="java.lang.Long">
+            <column name="rbd">
+                <comment>rbd</comment>
+            </column>
+        </property>
+        <property name="nombreEES" type="string">
+            <column name="nombre_ees" length="250">
+                <comment>nombre establecimiento</comment>
+            </column>
+        </property>
+        <property name="direccion" type="string">
+            <column name="direccion" length="250">
+                <comment>direccion</comment>
+            </column>
+        </property>
+        <property name="matricula" type="java.lang.Long">
+            <column name="matricula">
+                <comment>numeros de alumnos</comment>
+            </column>
+        </property>
+        <property name="comunaId" type="java.lang.Integer">
+            <column name="comuna_id">
+            </column>
+        </property>
+        <property name="comuna" type="string">
+            <column name="comuna" length="250">
+                <comment>nombre de la comuna</comment>
+            </column>
+        </property>
+         <property name="regionId" type="java.lang.Integer">
+            <column name="region_id">
+            </column>
+        </property>
+        <property name="region" type="string">
+            <column name="region" length="250">
+                <comment>nombre de la region</comment>
+            </column>
+        </property>
+        <property name="estadoAdjudicadoId" type="java.lang.Integer">
+            <column name="estado_adjudicado_id">
+            </column>
+        </property>
+        <property name="subEstadoAdjudicadoId" type="java.lang.Integer">
+            <column name="subestado_adjudicado_id">
+            </column>
+        </property>
+        <property name="subEstadoAdjudicado" type="string">
+            <column name="subestado_adjudicado" length="250">
+                <comment>estado adjudicacion</comment>
+            </column>
+        </property>
+        <property name="estadoConectadoId" type="java.lang.Integer">
+            <column name="estado_conectado_id">
+            </column>
+        </property>
+        <property name="estadoConectado" type="string">
+            <column name="estado_conectado" length="250">
+                <comment>conectado estado</comment>
+            </column>
+        </property>
+        <property name="estadoMineducId" type="java.lang.Integer">
+            <column name="estado_mineduc_id">
+            </column>
+        </property>
+        <property name="estadoMineduc" type="string">
+            <column name="estado_mineduc" length="250">
+                <comment>estado mineduc</comment>
+            </column>
+        </property>
+    </class>
+</hibernate-mapping>

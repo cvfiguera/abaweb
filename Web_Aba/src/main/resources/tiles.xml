@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC  
+      "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"  
+      "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+<tiles-definitions>
+	<definition name="baseLayout" template="/WEB-INF/layout/baseLayout.jsp">
+		<put-attribute name="title" value="" />
+		<put-attribute name="menu" value="/WEB-INF/tiles/menu.jsp" />
+		<put-attribute name="header" value="/WEB-INF/tiles/header.jsp" />
+		<put-attribute name="modal" value="/WEB-INF/pages/editarPerfil.jsp" />
+		<put-attribute name="body" value="" />
+		<put-attribute name="footer" value="/WEB-INF/tiles/footer.jsp" />
+	</definition>
+	<definition name="busquedas" extends="baseLayout">
+		<put-attribute name="title" value="Titulo" />
+		<put-attribute name="body"
+			value="/WEB-INF/pages/busquedas/busquedas.jsp" />
+	</definition>
+	<definition name="error" extends="baseLayout">
+		<put-attribute name="title" value="Titulo" />
+		<put-attribute name="body" value="/WEB-INF/pages/error.jsp" />
+	</definition>
+	<definition name="ees" extends="baseLayout">
+		<put-attribute name="title" value="Titulo" />
+		<put-attribute name="body" value="/WEB-INF/pages/ees/ees.jsp" />
+	</definition>
+	<definition name="graficos" extends="baseLayout">
+		<put-attribute name="title" value="Titulo" />
+		<put-attribute name="body"
+			value="/WEB-INF/pages/graficos/graficos.jsp" />
+	</definition>
+	<definition name="ticketmodal" template="/WEB-INF/pages/busquedas/ticketmodal.jsp">
+	</definition>
+	<definition name="reportes" extends="baseLayout">
+		<put-attribute name="title" value="Titulo" />
+		<put-attribute name="body"
+			value="/WEB-INF/pages/reportes/reportes.jsp" />
+	</definition>
+	<definition name="ticketOperadoras" extends="baseLayout">
+		<put-attribute name="title" value="Titulo" />
+		<put-attribute name="body"
+			value="/WEB-INF/pages/reporteticket/reporteticket.jsp" />
+	</definition>
+	<definition name="baseLogin" template="/WEB-INF/layout/baseLogin.jsp">
+		<put-attribute name="title" value="" />
+		<put-attribute name="headerLogin" value="/WEB-INF/tiles/headerLogin.jsp" />
+		<put-attribute name="body" value="" />
+		<put-attribute name="footer" value="/WEB-INF/tiles/footer.jsp" />
+	</definition>
+	<definition name="login" extends="baseLogin">
+		<put-attribute name="title" value="titulo"></put-attribute>
+		<put-attribute name="body" value="/WEB-INF/pages/login.jsp"></put-attribute>
+	</definition>
+</tiles-definitions>

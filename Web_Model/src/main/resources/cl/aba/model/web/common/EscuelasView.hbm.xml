@@ -1,0 +1,89 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 09-05-2017 11:54:22 AM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+	<class name="cl.aba.model.web.common.EscuelasView" table="escuelas_view" schema="web">
+		<id name="rbdId" type="java.lang.Integer">
+			<column name="rbd_id" />
+		</id>
+		<property name="concursoId" type="java.lang.Integer">
+			<column name="concurso_id" />
+		</property>
+		<property name="concurso" type="string">
+			<column name="concurso" length="100" />
+		</property>
+		<property name="rbd" type="java.lang.Integer">
+			<column name="rbd" />
+		</property>
+		<property name="anexo" type="string">
+			<column name="anexo" length="2" />
+		</property>
+		<property name="nombreEES" type="string">
+			<column name="nombre_ees" length="250" />
+		</property>
+		<property name="direccion" type="string">
+			<column name="direccion" length="250" />
+		</property>
+		<property name="matricula" type="java.lang.Long">
+			<column name="matricula" />
+		</property>
+		<property name="precioMensual" type="big_decimal">
+			<column name="precio_mensual" precision="100" scale="4" />
+		</property>
+		<property name="velocidadBajada" type="big_decimal">
+			<column name="velocidad_bajada" precision="100" scale="4" />
+		</property>
+		<property name="velocidadSubida" type="big_decimal">
+			<column name="velocidad_subida" precision="100" scale="4" />
+		</property>
+		<property name="fechaFas" type="date">
+			<column name="fecha_fas" length="13" />
+		</property>
+		<property name="tecnologiaId" type="java.lang.Integer">
+			<column name="tecnologia_id" />
+		</property>
+		<property name="tecnologia" type="string">
+			<column name="tecnologia" length="250" />
+		</property>
+		<property name="operadoraId" type="java.lang.Integer">
+			<column name="operadora_id" />
+		</property>
+		<property name="operadora" type="string">
+			<column name="operadora" length="250" />
+		</property>
+		<property name="estadoAdjudicadoId" type="java.lang.Integer">
+			<column name="estado_adjudicado_id" />
+		</property>
+		<property name="subEstadoAdjudicadoId" type="java.lang.Integer">
+			<column name="subestado_adjudicado_id" />
+		</property>
+		<property name="subEstadoAdjudicado" type="string">
+			<column name="subestado_adjudicado" length="250" />
+		</property>
+		<property name="estadoMineducId" type="java.lang.Integer">
+			<column name="estado_mineduc_id" />
+		</property>
+		<property name="estadoMineduc" type="string">
+			<column name="estado_mineduc" length="250" />
+		</property>
+		<property name="estadoConectadoId" type="java.lang.Integer">
+			<column name="estado_conectado_id" />
+		</property>
+		<property name="estadoConectado" type="string">
+			<column name="estado_conectado" length="250" />
+		</property>
+		<property name="comunaId" type="java.lang.Integer">
+			<column name="comuna_id" />
+		</property>
+		<property name="comuna" type="string">
+			<column name="comuna" length="250" />
+		</property>
+		<property name="regionId" type="java.lang.Integer">
+			<column name="region_id" />
+		</property>
+		<property name="region" type="string">
+			<column name="region" length="250" />
+		</property>
+	</class>
+</hibernate-mapping>

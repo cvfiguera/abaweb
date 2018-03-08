@@ -1,0 +1,77 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 27-04-2017 11:06:15 AM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="cl.aba.model.web.common.Instalaciones" table="instalaciones" schema="web">
+        <id name="instalacionId" type="int">
+            <column name="instalacion_id" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="rbdConcursos" class="cl.aba.model.web.common.RbdConcursos" fetch="select">
+            <column name="rbd_concurso_id" not-null="true">
+                <comment>rbd_concurso id</comment>
+            </column>
+        </many-to-one>
+        <many-to-one name="instalacionExcepciones" class="cl.aba.model.web.common.InstalacionExcepciones" fetch="select">
+            <column name="instalacion_excepcion_id">
+                <comment>id instalacion exception</comment>
+            </column>
+        </many-to-one>
+        <many-to-one name="tipoAdjudicaciones" class="cl.aba.model.web.common.TipoAdjudicaciones" fetch="select">
+            <column name="tipo_adj_id">
+                <comment>tipo de espera</comment>
+            </column>
+        </many-to-one>
+        <many-to-one name="operadoras" class="cl.aba.model.web.common.Operadoras" fetch="select">
+            <column name="operadora_id" not-null="true">
+                <comment>id operadora</comment>
+            </column>
+        </many-to-one>
+        <many-to-one name="tecnologias" class="cl.aba.model.web.common.Tecnologias" fetch="select">
+            <column name="tecnologia_id">
+                <comment>id tecnologia</comment>
+            </column>
+        </many-to-one>
+        <property name="precioInstalacionDecimal" type="big_decimal">
+            <column name="precio_instalacion_decimal" precision="100" scale="4">
+                <comment>precio adjudicacion</comment>
+            </column>
+        </property>
+        <property name="urldocTx" type="string">
+            <column name="urldoc_tx" length="200">
+                <comment>velocidad internacional</comment>
+            </column>
+        </property>
+        <property name="fechaAltaServicioFe" type="date">
+            <column name="fecha_alta_servicio_fe" length="13">
+                <comment>fecha_alta_servicio</comment>
+            </column>
+        </property>
+        <property name="numeroFormularioAltaServicio" type="string">
+            <column name="numero_formulario_alta_servicio" length="50">
+                <comment>numero de fas</comment>
+            </column>
+        </property>
+        <property name="velocidadNacionalNu" type="big_decimal">
+            <column name="velocidad_nacional_nu" precision="100" scale="4">
+                <comment>velocidad nacional</comment>
+            </column>
+        </property>
+        <property name="velocidadInternacionalNu" type="big_decimal">
+            <column name="velocidad_internacional_nu" precision="100" scale="4">
+                <comment>velocidad internacional</comment>
+            </column>
+        </property>
+        <property name="fechaDesintalacionFe" type="date">
+            <column name="fecha_desintalacion_fe" length="13">
+                <comment>fecha desintalacion</comment>
+            </column>
+        </property>
+        <property name="idci" type="java.lang.Integer">
+            <column name="idci">
+                <comment>idci, 0 para no idci</comment>
+            </column>
+        </property>
+    </class>
+</hibernate-mapping>

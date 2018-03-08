@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 12-10-2017 13:18:58 by Hibernate Tools 5.2.0.CR1 -->
+<hibernate-mapping>
+    <class name="cl.aba.model.security.common.Roles" table="roles" optimistic-lock="version">
+        <id name="rolId" type="int">
+            <column name="rol_id" />
+            <generator class="assigned" />
+        </id>
+        <property name="nombreRol" type="string">
+            <column name="nombre_rol" />
+        </property>
+        <property name="descripcion" type="string">
+            <column name="descripcion" />
+        </property>
+        <set name="usuarioses" table="usuarios" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="roles_id" />
+            </key>
+            <one-to-many class="cl.aba.model.security.common.Usuarios" />
+        </set>
+        <set name="usuarioses_1" table="usuarios" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="roles_id" />
+            </key>
+            <one-to-many class="cl.aba.model.security.common.Usuarios" />
+        </set>
+    </class>
+</hibernate-mapping>

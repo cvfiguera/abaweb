@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+		"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+		"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+	<session-factory>
+		<property name="connection.pool_size">100</property>
+		<property name="dialect">org.hibernate.dialect.PostgreSQLDialect</property>
+		<property name="current_session_context_class">thread</property>
+		<property name="cache.provider_class">org.hibernate.cache.NoCacheProvider</property>
+		<property name="hibernate.enable_lazy_load_no_trans">true</property>
+		<property name="show_sql">true</property>
+		<property name="hibernate.default_schema">web</property>
+		<property name="hibernate.show_sql">create</property>
+		
+		
+
+		<mapping resource="cl/aba/model/web/common/Tecnologias.hbm.xml" />
+		<mapping resource="cl/aba/model/web/common/MineducEstados.hbm.xml" />
+		<mapping resource="cl/aba/model/web/common/Comunas.hbm.xml" />
+		<mapping resource="cl/aba/model/web/common/Regiones.hbm.xml" />
+		<mapping resource="cl/aba/model/web/common/Adjudicaciones.hbm.xml" />
+		<mapping resource="cl/aba/model/web/common/RbdConcursos.hbm.xml" />
+		<mapping resource="cl/aba/model/web/common/TipoAdjudicaciones.hbm.xml" />
+		<mapping resource="cl/aba/model/web/common/Operadoras.hbm.xml" />
+		<mapping resource="cl/aba/model/web/common/ListaEspera.hbm.xml" />
+		<mapping resource="cl/aba/model/web/common/Instalaciones.hbm.xml" />
+		<mapping resource="cl/aba/model/web/common/RbdEstados.hbm.xml" />
+		<mapping resource="cl/aba/model/web/common/Rbd.hbm.xml" />
+		<mapping resource="cl/aba/model/web/common/ConectadoEstados.hbm.xml" />
+		<mapping resource="cl/aba/model/web/common/Contactos.hbm.xml" />
+		<mapping resource="cl/aba/model/web/common/InstalacionExcepciones.hbm.xml" />
+		<mapping resource="cl/aba/model/web/common/ExcepcionesPago.hbm.xml" />
+		<mapping resource="cl/aba/model/web/common/Concursos.hbm.xml" />
+		<mapping resource="cl/aba/model/web/common/AdjudicadoEstados.hbm.xml" />
+
+		<mapping resource="cl/aba/model/web/common/EscuelasView.hbm.xml"/>
+		<mapping resource="cl/aba/model/web/common/EESView.hbm.xml" />
+		<mapping resource="cl/aba/model/web/common/FASView.hbm.xml" />
+		<mapping resource="cl/aba/model/web/common/GraficosView.hbm.xml" />
+		
+<!-- 		<mapping resource="hibernateWeb.hbm.xml" /> -->
+		
+	
+
+
+	</session-factory>
+</hibernate-configuration>

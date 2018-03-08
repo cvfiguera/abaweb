@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 27-04-2017 11:06:15 AM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="cl.aba.model.web.common.Operadoras" table="operadoras" schema="web">
+        <id name="operadoraId" type="int">
+            <column name="operadora_id" />
+            <generator class="assigned" />
+        </id>
+        <property name="nombreSocialTx" type="string">
+            <column name="nombre_social_tx" length="250">
+                <comment>nombre social</comment>
+            </column>
+        </property>
+        <property name="aliasTx" type="string">
+            <column name="alias_tx" length="250">
+                <comment>alias</comment>
+            </column>
+        </property>
+        <property name="observacionTx" type="string">
+            <column name="observacion_tx" length="250">
+                <comment>observacion</comment>
+            </column>
+        </property>
+        <property name="rut" type="big_decimal">
+            <column name="rut" precision="100" scale="4">
+                <comment>rut de la operadora</comment>
+            </column>
+        </property>
+        <set name="listaEsperas" inverse="true">
+            <key>
+                <column name="operadora_id">
+                    <comment>operadora id</comment>
+                </column>
+            </key>
+            <one-to-many class="cl.aba.model.web.common.ListaEspera" />
+        </set>
+        <set name="adjudicacioneses" inverse="true">
+            <key>
+                <column name="operadora_id" not-null="true">
+                    <comment>operadora id</comment>
+                </column>
+            </key>
+            <one-to-many class="cl.aba.model.web.common.Adjudicaciones" />
+        </set>
+        <set name="instalacioneses" inverse="true">
+            <key>
+                <column name="operadora_id" not-null="true">
+                    <comment>id operadora</comment>
+                </column>
+            </key>
+            <one-to-many class="cl.aba.model.web.common.Instalaciones" />
+        </set>
+    </class>
+</hibernate-mapping>
